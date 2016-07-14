@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>春泥村雨</title>
-  
+  <subtitle>网志</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-01T09:08:37.852Z</updated>
+  <updated>2016-07-08T06:13:55.414Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/06/30/%E7%94%A8Git%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0GitHub/"/>
     <id>http://yoursite.com/2016/06/30/用Git上传项目到GitHub/</id>
     <published>2016-06-30T09:24:40.000Z</published>
-    <updated>2016-07-01T09:08:37.852Z</updated>
+    <updated>2016-07-08T06:13:55.414Z</updated>
     
     <content type="html">&lt;p&gt;&lt;em&gt;Git 与 GitHub 的关系是什么？Git 是一个版本控制工具，Github 是一个用 Git 做版本控制的项目托管平台。形象解释为 Git 相当于是弓，GitHub 是靶，你的代码是箭，弓把箭射到靶上。&lt;/em&gt;&lt;/p&gt;
 &lt;h5 id=&quot;1-首先在GitHub网站（点此进入）注册账号、创建仓库&quot;&gt;&lt;a href=&quot;#1-首先在GitHub网站（点此进入）注册账号、创建仓库&quot; class=&quot;headerlink&quot; title=&quot;1. 首先在GitHub网站（点此进入）注册账号、创建仓库&quot;&gt;&lt;/a&gt;1. 首先在GitHub网站（&lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点此进入&lt;/a&gt;）注册账号、创建仓库&lt;/h5&gt;&lt;h5 id=&quot;2-下载安装Git&quot;&gt;&lt;a href=&quot;#2-下载安装Git&quot; class=&quot;headerlink&quot; title=&quot;2. 下载安装Git&quot;&gt;&lt;/a&gt;2. 下载安装Git&lt;/h5&gt;&lt;ul&gt;
@@ -29,16 +29,12 @@
 &lt;/ul&gt;
 &lt;h5 id=&quot;3-配置Git&quot;&gt;&lt;a href=&quot;#3-配置Git&quot; class=&quot;headerlink&quot; title=&quot;3. 配置Git&quot;&gt;&lt;/a&gt;3. 配置Git&lt;/h5&gt;&lt;ul&gt;
 &lt;li&gt;先建一个本地仓库，取名为 iGit&lt;br&gt;在Windows 下新建文件夹 iGit，双击进入，空白处右键选择“Git Bash Here”开启命令行窗口&lt;/li&gt;
-&lt;li&gt;命令行执行&lt;blockquote&gt;
-&lt;p&gt;$ git init&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;li&gt;命令行执行&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git init&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;之后 iGit 文件下会多出来一个 .git 文件夹，表示本地 Git 仓库创建成功。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;本地创建 SSH key&lt;blockquote&gt;
-&lt;p&gt;$ ssh-keygen -t rsa -C “你的GitHub注册邮箱”&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;li&gt;本地创建 SSH key&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ssh-keygen -t rsa -C &lt;span class=&quot;string&quot;&gt;&quot;你的GitHub注册邮箱&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;回车后，会在默认文件 id_rsa.pub 上生成 SSH key，位置：C:\Users\用户名.ssh&lt;br&gt;之后系统要求输入密码，直接回车不设密码，重复密码时再次回车，之后显示 SSH key 已经生成成功。&lt;/p&gt;
@@ -46,33 +42,22 @@
 &lt;li&gt;打开 id_rsa.pub 文件，复制文件中的 key，粘贴到 GitHub 网站 Account Settings 中的 SSH keys，Add SSH key 中。如图：&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/28402-47ffd65d0cb1748e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Paste_Image.png&quot;&gt;&lt;/p&gt;
-&lt;h5 id=&quot;4-验证配置是否成功，在-Git-Bash-Here-命令行下输入如下命令&quot;&gt;&lt;a href=&quot;#4-验证配置是否成功，在-Git-Bash-Here-命令行下输入如下命令&quot; class=&quot;headerlink&quot; title=&quot;4. 验证配置是否成功，在 Git Bash Here 命令行下输入如下命令:&quot;&gt;&lt;/a&gt;4. 验证配置是否成功，在 Git Bash Here 命令行下输入如下命令:&lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;$ ssh -T git@github.com&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;h5 id=&quot;4-验证配置是否成功，在-Git-Bash-Here-命令行下输入如下命令&quot;&gt;&lt;a href=&quot;#4-验证配置是否成功，在-Git-Bash-Here-命令行下输入如下命令&quot; class=&quot;headerlink&quot; title=&quot;4. 验证配置是否成功，在 Git Bash Here 命令行下输入如下命令:&quot;&gt;&lt;/a&gt;4. 验证配置是否成功，在 Git Bash Here 命令行下输入如下命令:&lt;/h5&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ssh -T git@github.com&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/28402-40f7f8a8458cb569.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Paste_Image.png&quot;&gt;&lt;/p&gt;
-&lt;h5 id=&quot;5-设置-username-和-email，添加远程地址&quot;&gt;&lt;a href=&quot;#5-设置-username-和-email，添加远程地址&quot; class=&quot;headerlink&quot; title=&quot;5. 设置 username 和 email，添加远程地址&quot;&gt;&lt;/a&gt;5. 设置 username 和 email，添加远程地址&lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;$ git config –global user.name “your name”&lt;br&gt;$ git config –global user.email “your_email@youremail.com”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;配置好这两项，用户就能知道谁做了什么，并且一切都更有组织性了不是吗？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;$ git remote add origin git@github.com:用户名/Git仓库名称.git&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;h5 id=&quot;5-设置-username-和-email，添加远程地址&quot;&gt;&lt;a href=&quot;#5-设置-username-和-email，添加远程地址&quot; class=&quot;headerlink&quot; title=&quot;5. 设置 username 和 email，添加远程地址&quot;&gt;&lt;/a&gt;5. 设置 username 和 email，添加远程地址&lt;/h5&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git config --global user.name &lt;span class=&quot;string&quot;&gt;&quot;your name&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git config --global user.email &lt;span class=&quot;string&quot;&gt;&quot;your_email@youremail.com&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;配置好这两项，用户就能知道谁做了什么，并且一切都更有组织性了不是吗？&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git remote add origin git@github.com:用户名/Git仓库名称.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;一个项目可以同时拥有好几个远端仓库为了能够区分，通常会起不同的名字。通常主远端仓库被称为 origin。&lt;/p&gt;
 &lt;p&gt;加完之后进入 .git，打开 config，这里会多出一个 remote “origin”内容，这就是刚才添加的远程地址，也可以直接修改 config 来配置远程地址。如图：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/28402-d1d166261f354139.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Paste_Image.png&quot;&gt;&lt;/p&gt;
 &lt;h5 id=&quot;6-提交上传本地文件&quot;&gt;&lt;a href=&quot;#6-提交上传本地文件&quot; class=&quot;headerlink&quot; title=&quot;6. 提交上传本地文件&quot;&gt;&lt;/a&gt;6. 提交上传本地文件&lt;/h5&gt;&lt;ul&gt;
 &lt;li&gt;在本地仓库添加一个文件，比如 README&lt;/li&gt;
-&lt;li&gt;命令行输入命令提交&lt;blockquote&gt;
-&lt;p&gt;$ git add README.md&lt;br&gt;$ git commit -m “提交注释”&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;li&gt;命令行输入命令提交&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git add README.md&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git commit -m &lt;span class=&quot;string&quot;&gt;&quot;提交注释&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Git 有个概念叫 暂存区，你可以把它看成一块空白帆布，包裹着所有你可能会提交的变动。它一开始为空，你可以通过 git add 命令添加内容，并使用 git commit 提交，-m “提交注释”表示对这次提交的描述。&lt;/p&gt;
 &lt;p&gt;这里要加文件扩展名，否则报错：fatal: pathspec ‘README’ did not match any files&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;上传到 GitHub&lt;blockquote&gt;
-&lt;p&gt;$ git push origin master&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;li&gt;上传到 GitHub&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git push origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;git push命令会将本地仓库推送到远程服务器。&lt;br&gt;git pull命令则相反。&lt;br&gt;注：首次提交，先git pull下，修改完代码后，使用git status可以查看文件的差别，使用 git add 添加要commit的文件。&lt;/p&gt;
