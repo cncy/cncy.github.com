@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-08T06:13:55.414Z</updated>
+  <updated>2016-07-15T05:20:18.494Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何在Word中快捷插入对勾和复选框</title>
+    <link href="http://yoursite.com/2016/07/15/%E5%A6%82%E4%BD%95%E5%9C%A8Word%E4%B8%AD%E5%BF%AB%E6%8D%B7%E6%8F%92%E5%85%A5%E5%AF%B9%E5%8B%BE%E5%92%8C%E5%A4%8D%E9%80%89%E6%A1%86/"/>
+    <id>http://yoursite.com/2016/07/15/如何在Word中快捷插入对勾和复选框/</id>
+    <published>2016-07-15T04:53:34.000Z</published>
+    <updated>2016-07-15T05:20:18.494Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;输入 &lt;strong&gt;221A&lt;/strong&gt;，然后按 &lt;strong&gt;ALT+X&lt;/strong&gt; 就是 √；&lt;/li&gt;
+&lt;li&gt;输入 &lt;strong&gt;2613&lt;/strong&gt; ，然后按 &lt;strong&gt;ALT+X&lt;/strong&gt; 就是 ☓；&lt;/li&gt;
+&lt;li&gt;输入 &lt;strong&gt;25A1&lt;/strong&gt;，然后按 &lt;strong&gt;ALT+X&lt;/strong&gt; 就是 □；&lt;/li&gt;
+&lt;li&gt;输入 &lt;strong&gt;2611&lt;/strong&gt;，然后按 &lt;strong&gt;ALT+X&lt;/strong&gt; 就是 ☑；&lt;/li&gt;
+&lt;li&gt;输入 &lt;strong&gt;2612&lt;/strong&gt;，然后按 &lt;strong&gt;ALT+X&lt;/strong&gt; 就是 ☒。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;同时，也可以通过图形界面输入，在这里大家可以看到快捷输入的编码，如图：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/28402-ba66c8df1a9f0da1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Paste_Image.png&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;输入 &lt;strong&gt;221A&lt;/strong&gt;，然后按 &lt;strong&gt;ALT+X&lt;/strong&gt; 就是 √；&lt;/li&gt;
+&lt;li&gt;输入 &lt;strong&gt;2613&lt;/strong&gt; ，然后按 &lt;strong&gt;ALT+X&lt;/strong&gt; 就是 ☓；&lt;/li&gt;
+
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Office" scheme="http://yoursite.com/tags/Office/"/>
+    
+      <category term="Word" scheme="http://yoursite.com/tags/Word/"/>
+    
+  </entry>
   
   <entry>
     <title>用Git上传项目到GitHub</title>
