@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-18T09:00:49.588Z</updated>
+  <updated>2016-07-28T09:13:14.967Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>腾讯地图经纬度转百度地图经纬度（PHP）</title>
+    <link href="http://yoursite.com/2016/07/28/%E8%85%BE%E8%AE%AF%E5%9C%B0%E5%9B%BE%E7%BB%8F%E7%BA%AC%E5%BA%A6%E8%BD%AC%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E7%BB%8F%E7%BA%AC%E5%BA%A6%EF%BC%88PHP%EF%BC%89/"/>
+    <id>http://yoursite.com/2016/07/28/腾讯地图经纬度转百度地图经纬度（PHP）/</id>
+    <published>2016-07-28T09:02:31.000Z</published>
+    <updated>2016-07-28T09:13:14.967Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;最近想帮公司线下的门店采集一下经纬度，标注在地图上，一研究居然地图还有这么多标准，现总结相关知识如下，首先了解一下当前互联网地图的坐标系现状&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&quot;一、坐标系介绍&quot;&gt;&lt;a href=&quot;#一、坐标系介绍&quot; class=&quot;headerlink&quot; title=&quot;一、坐标系介绍&quot;&gt;&lt;/a&gt;一、坐标系介绍&lt;/h5&gt;&lt;p&gt;&lt;strong&gt;1. 地球坐标 (WGS84)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;国际标准，从专业GPS 设备中取出的数据的坐标系&lt;/li&gt;
+&lt;li&gt;国际地图提供商使用的坐标系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2. 火星坐标 (GCJ-02)也叫国测局坐标系&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;中国标准，从国行移动设备中定位获取的坐标数据使用这个坐标系&lt;/li&gt;
+&lt;li&gt;国家规定： 国内出版的各种地图系统（包括电子形式），必须至少采用GCJ-02对地理位置进行首次加密。&lt;/li&gt;
+&lt;li&gt;腾讯地图用的也是GCJ02坐标&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;3. 百度坐标 (BD-09)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;百度标准，百度 SDK，百度地图，Geocoding 使用&lt;/li&gt;
+&lt;li&gt;(本来就乱了，百度又在火星坐标上来个二次加密)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;二、PHP-代码&quot;&gt;&lt;a href=&quot;#二、PHP-代码&quot; class=&quot;headerlink&quot; title=&quot;二、PHP 代码&quot;&gt;&lt;/a&gt;二、PHP 代码&lt;/h5&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	$lng=floatval(&lt;span class=&quot;number&quot;&gt;112.618056&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//用变量替换时注意数据类型&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	$lat=floatval(&lt;span class=&quot;number&quot;&gt;37.858867&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	$locXY=Convert_GCJ02_To_BD09($lng,$lat);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	$content=&lt;span class=&quot;string&quot;&gt;&quot;百度地图坐标系，经度：&quot;&lt;/span&gt;.$locXY[&lt;span class=&quot;string&quot;&gt;&#39;lng&#39;&lt;/span&gt;].&lt;span class=&quot;string&quot;&gt;&quot;；纬度：&quot;&lt;/span&gt;.$locXY[&lt;span class=&quot;string&quot;&gt;&#39;lat&#39;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; $content;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	* 中国正常GCJ02坐标--&amp;gt;百度地图BD09坐标&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	* 腾讯地图用的也是GCJ02坐标&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	* &lt;span class=&quot;doctag&quot;&gt;@param&lt;/span&gt; double $lng 经度&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	* &lt;span class=&quot;doctag&quot;&gt;@param&lt;/span&gt; double $lat 纬度&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Convert_GCJ02_To_BD09&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;($lng,$lat)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$x_pi = &lt;span class=&quot;number&quot;&gt;3.14159265358979324&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;3000.0&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;180.0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$x = $lng;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$y = $lat;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$z =sqrt($x * $x + $y * $y) + &lt;span class=&quot;number&quot;&gt;0.00002&lt;/span&gt; * sin($y * $x_pi);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$theta = atan2($y, $x) + &lt;span class=&quot;number&quot;&gt;0.000003&lt;/span&gt; * cos($x * $x_pi);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$lng = $z * cos($theta) + &lt;span class=&quot;number&quot;&gt;0.0065&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$lat = $z * sin($theta) + &lt;span class=&quot;number&quot;&gt;0.006&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;lng&#39;&lt;/span&gt;=&amp;gt;$lng,&lt;span class=&quot;string&quot;&gt;&#39;lat&#39;&lt;/span&gt;=&amp;gt;$lat);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大家可以通过此工具来验证准确性：&lt;a href=&quot;http://api.map.baidu.com/lbsapi/getpoint/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;百度地图拾取坐标系统&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/28402-659e025bc7176a2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;百度地图坐标拾取系统 截图&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h5 id=&quot;参考资料：&quot;&gt;&lt;a href=&quot;#参考资料：&quot; class=&quot;headerlink&quot; title=&quot;参考资料：&quot;&gt;&lt;/a&gt;&lt;strong&gt;&lt;em&gt;参考资料：&lt;/em&gt;&lt;/strong&gt;&lt;/h5&gt;&lt;p&gt;&lt;a href=&quot;http://cnodejs.org/topic/564c0a27e4766d487f6fe38d&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cnodejs.org/topic/564c0a27e4766d487f6fe38d&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.open-open.com/code/view/1440854840138&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.open-open.com/code/view/1440854840138&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;&lt;em&gt;最近想帮公司线下的门店采集一下经纬度，标注在地图上，一研究居然地图还有这么多标准，现总结相关知识如下，首先了解一下当前互联网地图的坐标系现状&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&quot;一、坐标系介绍&quot;&gt;&lt;a href=&quot;#一、坐标系介绍&quot; 
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
   
   <entry>
     <title>（转）迄今为止关于中国南海最靠谱文章</title>
