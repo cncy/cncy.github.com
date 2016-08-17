@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-28T09:13:14.967Z</updated>
+  <updated>2016-08-17T02:47:28.733Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Excel 无法按颜色筛选的解决办法</title>
+    <link href="http://yoursite.com/2016/08/17/Excel-%E6%97%A0%E6%B3%95%E6%8C%89%E9%A2%9C%E8%89%B2%E7%AD%9B%E9%80%89%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://yoursite.com/2016/08/17/Excel-无法按颜色筛选的解决办法/</id>
+    <published>2016-08-17T02:42:54.000Z</published>
+    <updated>2016-08-17T02:47:28.733Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Excel 共享工作簿后无法按颜色筛选，取消选择“允许多用户同时编辑……”即可恢复&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/28402-d785cea03e40550c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;取消选择可按颜色 筛选&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;&lt;em&gt;Excel 共享工作簿后无法按颜色筛选，取消选择“允许多用户同时编辑……”即可恢复&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_im
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Office" scheme="http://yoursite.com/tags/Office/"/>
+    
+      <category term="Excel" scheme="http://yoursite.com/tags/Excel/"/>
+    
+  </entry>
   
   <entry>
     <title>腾讯地图经纬度转百度地图经纬度（PHP）</title>
